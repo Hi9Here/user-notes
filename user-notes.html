@@ -11,7 +11,7 @@
     <paper-button on-tap="press"><content></content></paper-button>
     <paper-dialog>
       <h3>Notes</h3>
-      <paper-textarea value="{{data.notes}}"></paper-textarea>
+      <paper-textarea value="{{notes}}"></paper-textarea>
       <paper-button on-tap="done">Done</paper-button>
     </paper-dialog>
   </template>
@@ -26,13 +26,15 @@
       this.$$('paper-dialog').open()
     },
     done: function() {
-      this.set("notes",data.notes,this.data)
+      this.set("notes",this.notes,this.data)
       this.$$('paper-dialog').close()
     },
     notes: function(data){
       if (data) {
         if (!data.notes) {
           data.notes = ""
+        } else {
+          this.notes = data.notes
         }
       }
     }
