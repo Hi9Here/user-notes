@@ -13,11 +13,23 @@
       <h3>Notes</h3>
       <paper-textarea value="{{data.notes}}"></paper-textarea>
     </paper-dialog>
-
   </template>
 </dom-module>
 <script>
   Polymer({
-    is: "user-notes"
+    is: "user-notes",
+    properties: {
+      data: {notify:true,observer:"notes"}
+    },
+    press: function() {
+      this.$$('paper-dialog').open();
+    }
+    notes: function(data){
+      if (data) {
+        if (!data.notes) {
+          data.notes = ""
+        }
+      }
+    }
   });
 </script>
