@@ -12,6 +12,7 @@
     <paper-dialog>
       <h3>Notes</h3>
       <paper-textarea value="{{data.notes}}"></paper-textarea>
+      <paper-button on-tap="done">Done</paper-button>
     </paper-dialog>
   </template>
 </dom-module>
@@ -23,7 +24,10 @@
     },
     press: function() {
       this.$$('paper-dialog').open();
-    }
+    },
+    done: function() {
+      this.$$('paper-dialog').close();
+    },
     notes: function(data){
       if (data) {
         if (!data.notes) {
