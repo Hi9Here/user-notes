@@ -23,11 +23,11 @@
       data: {notify:true,observer:"notes"}
     },
     press: function() {
-      this.$$('paper-dialog').open();
+      this.$$('paper-dialog').open()
     },
     done: function() {
-      this.set("data.notes",data.notes)
-      this.$$('paper-dialog').close();
+      this.set("notes",data.notes,this.data)
+      this.$$('paper-dialog').close()
     },
     notes: function(data){
       if (data) {
